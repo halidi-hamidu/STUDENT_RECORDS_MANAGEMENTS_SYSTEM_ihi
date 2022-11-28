@@ -1,0 +1,215 @@
+html,
+body{
+  margin: 0;
+  padding: 0;
+}
+
+h1,h2,h3,h4,h5{
+  margin: 0;
+}
+
+*{
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* styles variable */
+:root{
+  --bgColor1: #eee;
+  --bgColor2: #fff;
+  --bgColor3: #060606;
+  --mainColor: #eee;
+  --mainColor1: rgba(180, 180, 180, 0.1);
+  --centered: center;
+  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  --shadow1: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 7px 0 rgba(0,0,0,0.19);
+  --flex: flex;
+  --flex: inline-flex;
+  --col: column;
+  --row: row;
+  --end: flex-end;
+  --start: flex-start;
+  --grid: grid;
+  --autoRows: minmax(200px);
+  --helvetica: helvetica, sans-serif;
+  --tahoma: tahoma, sans-serif;
+  --boldness: bold;
+  --block: block;
+  --nodecoration: none;
+  --relate: relative;
+  --abs: absolute;
+  --none: none;
+  --vh: 100vh;
+  --linear: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+}
+
+/* =========== FORMS STYLING ============== */
+
+.content1{
+  background-color: var(--mainColor1);
+  display: var(--flex);
+  flex-direction: var(--col);
+  align-items: var(--centered);
+  height: var(--vh);
+  justify-content: center;
+  width: 100%;
+}
+
+.content1 .container .row .col-md-4 .inner{
+  box-shadow: var(--shadow);
+  padding: 10px 10px;
+}
+
+.content1 .container .row .col-md-4 .alert_inner .alert{
+  width: 100%;
+  display: inline-block;
+  padding: 2px;
+}
+
+.content1 .container .row .col-md-4 .alert_inner .alert .one{
+  width: 90%;
+  float: left;
+  padding-left: 10px;
+}
+
+.content1 .container .row .col-md-4 .alert_inner .alert .two{
+  float: right;
+  width: 10%;
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_username label span{
+  display: var(--none);
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_password label span{
+  display: var(--none);
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_password1 label span{
+  display: var(--none);
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_password2 label span{
+  display: var(--none);
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_username div .textinput{
+  border: var(--none);
+  outline: none !important;
+  padding: 3px 7px;
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_username div .textinput:focus{
+  border: var(--none);
+    outline: none !important;
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_username div small{
+  display: var(--none);
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_password div .textinput{
+  border: var(--none);
+  outline: none !important;
+  padding: 3px 7px;
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_password div .textinput:focus{
+  border: var(--none);
+    outline: none !important;
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_password1 div .textinput{
+  border: var(--none);
+  outline: none !important;
+  padding: 3px 7px;
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_password1 div .textinput:focus{
+  border: var(--none);
+    outline: none !important;
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_password1 div small{
+  display: var(--none);
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_password2 div .textinput{
+  border: var(--none);
+  outline: none !important;
+  padding: 3px 7px;
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_password2 div .textinp:focus{
+  border: var(--none);
+    outline: none !important;
+}
+
+.content1 .container .row .col-md-4 .inner form .form-group #div_id_password2 div small{
+  display: var(--none);
+}
+
+.content1 .container .row .col-md-4 .inner form .form_group2{
+  margin: 5px 0px;
+}
+
+.content1 .container .row .col-md-4 .inner p{
+  color: #000;
+}
+
+.content1 .container .row .col-md-4 .inner p a{
+  color: #000;
+  text-decoration: var(--nodecoration);
+}
+
+.content2 .container-fluid .row .col-md-2{
+  height: var(--vh);
+  margin: 0;
+  padding: 0;
+  box-shadow: var(--shadow1);
+}
+
+.content2 .container-fluid .row .col-md-2 .inner .logo{
+  background-color: var(--mainColor1);
+  /* background-color: #fff; */
+  width: 100%;
+  box-shadow: var(--shadow1);
+  padding: 7px 15px;
+}
+
+.content2 .container-fluid .row .col-md-2 .logo h3{
+  margin: 0 !important;
+}
+
+.content2 .container-fluid .row .col-md-10{
+  margin: 0;
+  padding: 0;
+}
+
+.content2 .container-fluid .row .col-md-10 .link{
+  background-color: var(--mainColor1);
+  /* background-color: var(--bgColor); */
+  width: 100%;
+  box-shadow: var(--shadow1);
+}
+
+.content2 .container-fluid .row .col-md-10 .link{
+  display: var(--flex);
+  justify-content: var(--end);
+}
+
+.content2 .container-fluid .row .col-md-10 .link ul{
+  margin: 0;
+  padding: 0;
+  padding-top: 11px;
+  padding-bottom: 12px;
+  position: var(--relate);
+  right: 2%;
+}
+
+.content2 .container-fluid .row .col-md-10 .link ul li{
+  display: var(--inline);
+  padding: 20px 3px;
+}
+
+/*############## COUNTERS STYLING ################*/

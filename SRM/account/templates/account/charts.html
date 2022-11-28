@@ -1,0 +1,86 @@
+{% extends './layout.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block title %}masters{% endblock %}
+
+{% block content %}
+
+{% if charts %}
+<div class="charts_heading_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inner shadow">
+                    <div class="card">
+                        <div class="card">
+                            <div class="card-heading">
+                                <h6 class="card-tile p-3">
+                                    STATISTICAL DATA PRESENTATIONS
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="charts">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mt-3">
+
+                <div class="card">
+                    <div class="card-body shadow-lg">
+                        <img src="data:image/png;base64, {{charts |safe }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="card">
+                    <div class="card-body shadow-lg">
+                        <img src="data:image/png;base64, {{chart2 |safe }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="card">
+                    <div class="card-body shadow-lg">
+                        <img src="data:image/png;base64, {{chart3 |safe }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="card">
+                    <div class="card-body shadow-lg">
+                        <img src="data:image/png;base64, {{chart4 |safe }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="card">
+                    <div class="card-body shadow-lg">
+                        <img src="data:image/png;base64, {{chart5|safe }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="card">
+                    <div class="card-body shadow-lg">
+                        <img src="data:image/png;base64, {{chart6|safe }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="card">
+                    <div class="card-body shadow-lg">
+                        <img src="data:image/png;base64, {{chart7|safe }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends './base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block title %}registration{% endblock %}
+
+{% block message %}
+{% if messages %}
+ <div class="alert alert-dismissable fade show bg-info">
+   {% for m in messages%}
+   <div class="one">
+     <span class="sp">
+       {{m}}
+     </span>
+   </div>
+  <div class="two">
+     <a class="close btn btn-sm text-right" data-bs-dismiss='alert'>&times;</a>
+  </div>
+   {% endfor %}
+ </div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <form class="" action="{% url 'register' %}" method="post" autocomplete="off">
+    <div class="form-group form_group">
+      {% csrf_token %}
+      {{ forms|crispy }}
+    </div>
+    <div class="form-group form_group2">
+      <button type="submit" class="btn btn-success btn-sm" name="submit">SignUp</button>
+    </div>
+  </form>
+  <p><a href="{% url 'auth' %}">Already have an Account!</a></p>
+
+{% endblock %}

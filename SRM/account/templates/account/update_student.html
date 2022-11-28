@@ -1,0 +1,61 @@
+{% extends './layout.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}update student{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+<div class="row row100">
+  <div class="col-md-12">
+    <div class="inner">
+      <ul class="breadcrumb">
+        {% for m in messages %}
+          <li class="breadcrumb-item"><a href="#">{{ m }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% else %}
+<!--############ BREAD CRUMBS SECTION ########### -->
+<div class="row row100">
+  <div class="col-md-12">
+    <div class="inner">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Detail Update</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+<!--############# UPDATATION FORMS  ############-->
+<div class="update_content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="update_inner">
+          <h6>Update Student Details</h6>
+          <form class="was-validated" action="" method="post">
+            <div class="form-group upd_form">
+              {% csrf_token %}
+              {{ forms|crispy }}
+            </div>
+            <div class="valid-feedback"></div>
+            <div class="invalid-feedback"></div>
+
+            <div class="form-group upd_form1">
+              <button type="submit" class="btn btn-primary btn-sm" name="submit">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

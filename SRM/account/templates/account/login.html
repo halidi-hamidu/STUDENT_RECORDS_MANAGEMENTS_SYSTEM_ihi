@@ -1,0 +1,39 @@
+{% extends './base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block title %}authentication{% endblock %}
+
+{% block message %}
+{% if messages %}
+ <div class="alert alert-dismissable fade show bg-info">
+   {% for m in messages %}
+   <div class="one">
+     <span class="sp">
+       {{m}}
+     </span>
+   </div>
+  <div class="two">
+     <a class="close btn btn-sm text-right" data-bs-dismiss='alert'>&times;</a>
+  </div>
+   {% endfor %}
+ </div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <form class="" action="{% url 'auth' %}" method="post" autocomplete="off">
+    <div class="form-group">
+      {% csrf_token %}
+      {{ forms|crispy }}
+    </div>
+    <div class="form-group form_group2">
+      <button type="submit" class="btn btn-success btn-sm" name="submit">LogIn</button>
+    </div>
+  </form>
+  <div class="links d-flex">
+    <p><a href="{% url 'register' %}">Create an Account!</a></p>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <p><a href="{% url 'password_reset' %}">Forget Password ?</a></p>
+  </div>
+{% endblock %}

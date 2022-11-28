@@ -1,0 +1,110 @@
+{% extends './layout.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block title %}all student{% endblock %}
+
+{% block content %}
+{% if messages %}
+
+{% else  %}
+{% if get_all_student %}
+
+{% endif %}
+
+<!-- ==============================phd_cont_male_std_true ============= -->
+{% if phd_cont_male_std_true %}
+
+
+{% endif %}
+
+<!-- ========================PHD COMPLETED MALE STUDENTS========= -->
+{% if phd_cmp_male_std_true %}
+<div class="row row100">
+    <div class="col-md-12">
+      <div class="inner">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">PHD MALE COMPLETED STUDENTS</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<div class="outer_container_1">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="inpt">
+                <form class="" action="{% url 'all_std' %}" method="post">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    {{forms.gender}}
+
+                    <!-- {{forms.college}} -->
+
+                    {{forms.education_level}}
+                    <input type="date" name="start_date">
+                    <input type="date" name="end_date">
+                    {{forms.student_status}}
+                  <button type="submit" name="submit"><span class="icon icon-search"></span></button>
+                  <a href="{% url 'phd_cmp_male' %}" class="btn btn-info btn-sm">Export</a>
+                  </div>
+                </form>
+              </div>
+              <div class="separator"></div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>firstname</th>
+                        <!-- <th>middlename</th> -->
+                        <th>surname</th>
+                        <!-- <th>email</th> -->
+                        <!-- <th>dob</th> -->
+                        <th>age</th>
+                        <th>gender</th>
+                        <th>contact</th>
+                        <th>nationality</th>
+                        <!-- <th>registration_number</th> -->
+                        <th>programme_name</th>
+                        <th>college</th>
+                        <th>education_level</th>
+                        <th>student_status</th>
+                        <th colspan="3">action</th>
+                    </tr>
+
+                    {% for std in phd_cmp_male_std %}
+                    <tr>
+                        <td>{{std.firstname}}</td>
+                        <!-- <td>{{std.middle_name}}</td> -->
+                        <td>{{std.surname}}</td>
+                        <!-- <td>{{std.email}}</td> -->
+                        <!-- <td>{{std.dob}}</td> -->
+                        <td>{{std.age}}</td>
+                        <td>{{std.gender}}</td>
+                        <td>{{std.contact}}</td>
+                        <td>{{std.nationality}}</td>
+                        <!-- <td>{{std.registration_number}}</td> -->
+                        <td>{{std.programme_name}}</td>
+                        <td>{{std.college}}</td>
+                        <td>{{std.education_level}}</td>
+                        <td>{{std.student_status}}</td>
+                        <td><a href="{% url 'update' std.id %}" class="btn btn-sm btn-primary"><span class="icon icon-edit"></span></a></td>
+                        <td><a href="{% url 'delete' std.id %}" class="btn btn-sm btn-danger"><span class="icon icon-trash"></span></a></td>
+                        <td><a href="{% url 'student_detail' std.id %}" class="btn btn-sm btn-info"><span class="icon icon-user"></span></a></td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!--############## MALE PHD STUDENTS POSTPONED #################-->
+
+
+<!-- ################ get_all_student_female #################### -->
+{% if get_all_student_female %}
+<h1>hellow </h1>
+{%endif%
+
+{% endblock %}

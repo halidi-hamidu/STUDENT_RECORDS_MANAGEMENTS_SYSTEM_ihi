@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'styles/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free/css/all.min.css' %}">
+    <title>SRM | {% block title %}{% endblock %}</title>
+</head>
+
+<body>
+
+    <div class="content2">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-2 col-sm-12 h-20 sticky-top">
+                    <div class="inner sticky-top">
+
+                        <div class="logo sticky-top">
+                            <h3><a href="{% url 'dashboard' %}" class="text-decoration-none">Design </a></h3>
+                        </div>
+                        <div class="empty_div fixed-top"></div>
+
+                        <div class="links my-4">
+                            <ul class="">
+                                <li class=" list-unstyled"><a href="{% url 'dashboard' %}" class="text-decoration-none"><span class="fas fa-cog"></span> &nbsp;Dashboard</a></li>
+                                <li class=" list-unstyled"><a href="{% url 'phd' %}" class="text-decoration-none"><span class="fas fa-graduation-cap"></span> &nbsp;Phd</a></li>
+                                <li class=" list-unstyled"><a href="{% url 'masters' %}" class="text-decoration-none"><span class="fas fa-graduation-cap"></span> &nbsp;Masters</a></li>
+                                <li class=" list-unstyled"><a href="{% url 'add_student' %}" class="text-decoration-none"><span class="fas fa-graduation-cap"></span> &nbsp;Add Student</a></li>
+                                <li class=" list-unstyled"><a href="{% url 'all_std' %}" class="text-decoration-none"><span class="fas fa-graduation-cap"></span> &nbsp;All Student</a></li>
+                                <li class=" list-unstyled"><a href="{% url 'chart' %}" class="text-decoration-none"><span class="fas fa-graduation-cap"></span> &nbsp;charts</a></li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-sm-12">
+                    <div class="link  sticky-top">
+                        <ul>
+                            <li>{{ get_time }}</li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
+                            <li class="user"><a href="{% url 'dashboard' %}" class="text-decoration-none"><span class="icon icon-user"></span></a></li>
+                            <li><a href="{% url 'dashboard' %}" class="text-decoration-none">{{ user }}</a></li>
+                            <li><a href="{% url 'logout' %}" class="text-decoration-none p-3 bg-grey border">logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="empty_div"></div>
+
+                    {% block content %} {% endblock %}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="footer_inner">
+                        <p class="text-center text-white pt-2">&#169;copyright IFAKARA <span id="get_year"></span> all right reserved!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'script/jquery.js' %}"></script>
+    <script src="{% static 'script/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'script/script.js' %}"></script>
+    <script>
+        var date = new Date();
+        var current_date = date.getDate();
+        var get_year = date.getFullYear();
+        document.getElementById("get_year").innerHTML = get_year;
+    </script>
+</body>
+
+</html>

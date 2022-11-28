@@ -1,0 +1,66 @@
+{% extends './layout.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block title %}masters{% endblock %}
+
+{% block content %}
+ <div class="outer_container_2">
+     <di class="container">
+         <div class="row">
+             <div class="col-md-6 offset-md-3 shadow">
+                 <form action="" method="POST">
+                     <div class="form-group">
+                         {% csrf_token %}
+                         <div class="row">
+                            <div class="col-md-4 offset-md-0">
+                                {{forms.firstname.label}}
+                                {{forms.firstname }}
+                                {{forms.middle_name.label}}
+                                {{forms.middle_name}}
+                                {{forms.surname.label}}
+                                {{forms.surname}}
+                                {{forms.email.label}}
+                                {{forms.email}}
+                                {{forms.dob.label}}
+                                {{forms.dob}}
+                                {{forms.age.label}}
+                                {{forms.age}}
+                                {{forms.gender.label}}
+                                {{forms.gender}}
+                                {{forms.contact.label}}
+                                {{forms.contact}}
+                                {{forms.nationality.label}}
+                                {{forms.nationality}}
+                            </div>
+                            <div class="col-md-4 offset-md-3">
+                                
+                                {{forms.registration_number.label}}
+                                {{forms.registration_number}}
+                                {{forms.programme_name.label}}
+                                {{forms.programme_name}}
+                                <br>
+                                {{forms.start_date.label}}
+                                {{forms.start_date}}
+                                {{forms.end_date.label}}
+                                {{forms.end_date}}
+                                <br>
+                                {{forms.college.label}}
+                                {{forms.college}}
+                                {{forms.education_level.label}}
+                                {{forms.education_level}}
+                                {{forms.student_status.label}}
+                                {{forms.student_status}}
+                            </div>
+                            <div class="button-group">
+                                <input type="submit" value="update" class="btn btn-info btn-sm mt-1 w-100">
+                            </div>
+                         </div>
+                     </div>
+                     
+                 </form>
+             </div>
+         </div>
+     </di>
+ </div>
+{% endblock %}

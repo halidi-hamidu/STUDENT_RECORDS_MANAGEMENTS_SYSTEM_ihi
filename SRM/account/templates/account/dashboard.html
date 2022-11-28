@@ -1,0 +1,189 @@
+{% extends './layout.html' %} {% load crispy_forms_tags %} {% load static %} {% block title %}masters{% endblock %} {% block content %}
+
+<!--############ BREAD CRUMBS SECTION ########### -->
+<div class="row row100">
+    <div class="col-md-12">
+        <div class="inner">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--################# COUNTERS ################-->
+<div class="row" id="row1">
+
+    <div class="col-md-3 my-2">
+        <div class="inner1 d-flex">
+
+            <div class="inf1">
+                <h6>ALL STUDENTS</h6>
+                <div class="empty_div_card1"></div>
+                <span>Total: {{ count_all_student }}</span>
+                <p><span>Male: {{ get_all_male_student }} </span>| <span>Female: {{ get_all_female_student }}</span></p>
+            </div>
+            <div class="ico">
+                <span class="fas fa-users fa-2x text-success"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 my-2">
+
+        <div class="inner2 d-flex">
+            <div class="inf1">
+                <h6>COMPLETED</h6>
+                <div class="empty_div_card2"></div>
+                <span>Total: {{ get_all_comp_student }}</span>
+                <p><span>Male: {{ get_all_comp_student_male }} </span>|<span> female: {{ get_all_comp_student_female }}</span></p>
+            </div>
+            <div class="ico justify-content-end">
+                <span class="fas fa-graduation-cap fa-2x text-info"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-3 my-2">
+        <div class="inner3 d-flex">
+
+            <div class="inf1">
+                <h6>CONTINOUS STUDENTS</h6>
+                <div class="empty_div_card3"></div>
+                <span> Total : {{ get_all_cont_student }}</span>
+                <p><span>Male: {{ get_all_cont_student_male }}</span> | <span>female: {{ get_all_cont_student_female }}</span></p>
+            </div>
+            <div class="ico justify-content-end">
+                <span class="fas fa-graduation-cap fa-2x text-warning"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-3 my-2">
+        <div class="inner4 d-flex">
+
+            <div class="inf1">
+                <h6>FINALIST STUDENTS</h6>
+                <div class="empty_div_card4"></div>
+                <span> Total : {{ get_all_final_student }}</span>
+                <p><span>Male: {{ get_all_final_student_male }}</span> | <span>female: {{ get_all_final_student_female }}</span></p>
+            </div>
+            <div class="ico justify-content-end">
+                <span class="fas fa-graduation-cap fa-2x text-primary"></span>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!--######### THIRD ROW FOR LOOPING DATA ##############-->
+<div class="row row2" id="row2">
+    <div class="col-md-8 col-sm-12">
+
+        <div class="looper">
+            <h6 class="text-secondary">List Of Students</h6>
+            <h6 class="exp"><a href="{% url 'download' %}">Export</a></h6>
+            <div class="table-responsive ">
+                <table class="table table-striped table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th class="text-center">FirstName</th>
+                            <!-- <th class="text-center">MiddleNname</th> -->
+                            <th class="text-center">SurnName</th>
+                            <!-- <th class="text-center">Email</th> -->
+                            <!-- <th class="text-center">DoB</th> -->
+                            <th class="text-center">Age</th>
+                            <!-- <th class="text-center">Gender</th> -->
+                            <th class="text-center">Contact</th>
+                            <th class="text-center">Nationality</th>
+                            <th class="text-center">RegistrationNumber</th>
+                            <!-- <th class="text-center">ProgrammeName</th> -->
+                            <th colspan="3" class="text-center">action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% if get_all_student %} {% for s in get_all_student %}
+                        <tr>
+                            <td class="text-center">{{ s.firstname }}</td>
+                            <!-- <td class="text-center">{{ s.middle_name }}</td> -->
+                            <td class="text-center">{{ s.surname }}</td>
+                            <!-- <td class="text-center">{{ s.email }}</td> -->
+                            <!-- <td class="text-center">{{ s.dob }}</td> -->
+                            <td class="text-center">{{ s.age }}</td>
+                            <!-- <td class="text-center">{{ s.gender }}</td> -->
+                            <td class="text-center">{{ s.contact }}</td>
+                            <td class="text-center">{{ s.nationality }}</td>
+                            <td class="text-center">{{ s.registration_number }}</td>
+                            <!-- <td class="text-center">{{ s.programme_name }}</td> -->
+                            <td><a href="{% url 'update' s.id %}" class="btn btn-sm btn-primary"><span class="icon icon-edit"></span></a></td>
+                            <td><a href="{% url 'delete' s.id %}" class="btn btn-sm btn-danger"><span class="icon icon-trash"></span></a></td>
+                            <td><a href="{% url 'student_detail' s.id %}" class="btn btn-sm btn-info"><span class="icon icon-user"></span></a></td>
+
+                        </tr>
+                        {% endfor %} {% endif %}
+
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="row postp">
+            <div class="col-md-12 col-sm-12 my-2">
+                <div class="postponed">
+                    <div class="inf1">
+                        <h6>POSTPONED STUDENTS</h6>
+                        <div class="empty_div_card4"></div>
+                        <span> Total : {{ get_all_post_student }}</span>
+                        <p><span>Male: {{ get_all_post_student }}</span> | <span>female: {{ get_all_post_student }}</span></p>
+                    </div>
+                    <div class="ico justify-content-end">
+                        <span class=""></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- =============================masters ======================== -->
+        <div class="row postp">
+            <div class="col-md-12 col-sm-12 my-2">
+                <div class="postponed">
+                    <div class="inf1">
+                        <h6>MASTER STUDENTS</h6>
+                        <div class="empty_div_card4"></div>
+                        <span> Total : {{ get_all_masters_std }}</span>
+                        <p><span>Male: {{ get_all_masters_male_std }}</span> | <span>female: {{ get_all_masters_female_std}}</span></p>
+                    </div>
+                    <div class="ico justify-content-end">
+                        <span class=""></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ======================================phd students =============== -->
+        <div class="row postp">
+            <div class="col-md-12 col-sm-12 my-2">
+                <div class="postponed">
+                    <div class="inf1">
+                        <h6>PHD STUDENTS</h6>
+                        <div class="empty_div_card4"></div>
+                        <span> Total : {{ get_all_phd_std }}</span>
+                        <p><span>Male: {{ get_all_phd_male_std }}</span> | <span>female: {{ get_all_phd_female_std }}</span></p>
+                    </div>
+                    <div class="ico justify-content-end">
+                        <span class=""></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+{% endblock %}

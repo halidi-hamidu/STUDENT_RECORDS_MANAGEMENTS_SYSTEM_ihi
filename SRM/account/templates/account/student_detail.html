@@ -1,0 +1,95 @@
+{% extends './layout.html' %}
+{% load static %}
+{% block title %}student details{% endblock %}
+
+{% block content %}
+<!--############ BREAD CRUMBS SECTION ########### -->
+<!-- <div class="row row100">
+  <div class="col-md-12">
+    <div class="inner">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Details For {{get_std.firstname}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
+<div class="student">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 my-2 col-sm-4 col-lg-4">
+        <div class="cont1">
+           <img src="{{ get_std.image.url }}" class="img-fluid w-100" alt="Image Not Uploaded">
+         <div class="info">
+           <h5>Firstname :</h5>
+           <p> {{ get_std.firstname }}</p>
+           <h5>Middlename :</h5>
+           <p> {{ get_std.middle_name }}</p>
+           <h5>Surname :</h5>
+           <p> {{ get_std.surname }}</p>
+           <h5>Age :</h5>
+           <p> {{ get_std.age }}</p>
+           <h5>Email :</h5>
+           <p> {{ get_std.email }}</p>
+           <h5>Contact :</h5>
+           <p> {{ get_std.contact }}</p>
+           <h5>Nationality :</h5>
+           <p> {{ get_std.nationality }}</p>
+         </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-9 col-sm-8 col-lg-8  my-2 ">
+        <div class="cont2">
+          <div class="one">
+            <h2>Education Information</h2>
+
+             <h5>Education Level</h5>
+             <p> - {{ get_std.education_level }}</p>
+             <div class="empt"></div>
+          </div>
+
+          <div class="two">
+            <h5>Programme Name / Course Name</h5>
+            <p> - {{ get_std.programme_name }}</p>
+            <div class="empt"></div>
+          </div>
+
+          <div class="three">
+            <h5>College Name</h5>
+            <p> - {{ get_std.college }}</p>
+            <div class="empt"></div>
+          </div>
+
+          <div class="three">
+            <h5>College Location</h5>
+            <p> - {{ get_std.college.college_location }}</p>
+            <div class="empt_local"></div>
+          </div>
+
+          <div class="three">
+            <h5>Registration Number</h5>
+            <p> - {{ get_std.registration_number }}</p>
+            <div class="empt"></div>
+          </div>
+
+          <div class="three">
+            <h5>Starting Date</h5>
+            <p> - {{ get_std.start_date }}</p>
+            <div class="empt"></div>
+          </div>
+
+          <div class="three">
+            <h5>Ending Date</h5>
+            <p> - {{ get_std.end_date }}</p>
+            <div class="empt"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
